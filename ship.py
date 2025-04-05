@@ -24,7 +24,7 @@ class Ship:
         self.moving_left = False
 
     def update(self):
-        """Update the ships postion based on the movement flags."""
+        """Update the ships position based on the movement flags."""
         
         # Update the ship's x value, not the rect.
         if self.settings.ship_wrap_around:
@@ -44,6 +44,11 @@ class Ship:
 
         # Update the rect object from self.x
         self.rect.x = self.x
+
+    def center_ship(self):
+        """Center the ship on the screen."""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
 
     def blitme(self):
         """Draw the ship at its current location."""
